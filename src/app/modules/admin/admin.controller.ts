@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { AdminServices } from "./admin.service";
 import { adminSearchAbleFields } from "../const";
-import pick from "../../shared/Pick";
+import { pick } from "../../shared/Pick";
 
 const getAllFromDb = async (req: Request, res: Response) => {
   try {
     const filters = pick(req.query, adminSearchAbleFields);
-    const options = pick(req.query, ["page","limit"]);
+    const options = pick(req.query, ["page","limit","sortBy","sortOrder"]);
 
 
     const result = await AdminServices.getAllFromDb(filters,options);

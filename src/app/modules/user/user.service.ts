@@ -1,7 +1,5 @@
-import { PrismaClient, UserRole } from "@prisma/client"
-
-
-const prisma = new PrismaClient()
+import {  UserRole } from "@prisma/client"
+import { prisma } from "../../shared/prisma"
 
 const CreateAdmin = async(data:any)=>{
     console.log(data)
